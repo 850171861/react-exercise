@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-export const isFaly = (value: any) => value === 0 ? false : !value
+export const isFaly = (value: unknown) => value === 0 ? false : !value
 export const cleanObject = (object:object) => {
     const result = { ...object }
     Object.keys(result).forEach(key => {
@@ -21,7 +21,7 @@ export const useMount = (callback:() => void) => {
 }
 
 
-export const useDebounce = (value:any,delay?:number) => {
+export const useDebounce = <V>(value:V,delay?:number) => {
     // value转换debouncedValue
     const [debouncedValue, setDebouncedValue] = useState(value)
 
