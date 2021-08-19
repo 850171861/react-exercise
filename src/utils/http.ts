@@ -2,7 +2,6 @@ import qs from 'qs'
 import * as auth from 'auth-provider'
 import { useAuth } from "context/auth-context";
 
-
 const apiUrl = process.env.REACT_APP_API_URL
 
 interface Config extends RequestInit {
@@ -14,7 +13,7 @@ export const http = async (endpoint: string, { data, token, headers, ...customCo
     const config = {
         method: 'GET',
         headers: {
-            Authorization: token ? `Bearer${token}` : '',
+            Authorization: token ? `Bearer ${token}` : '',
             'Context-Type': data ? 'application/json' : ''
         },
         ...customConfig
