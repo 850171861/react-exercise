@@ -18,7 +18,7 @@ export const ProjectListScreen = () => {
 
     const [list, setList] = useState([])
 
-    const debouncedParam = useDebounce(param,200)
+    const debouncedParam = useDebounce(param, 200)
 
     useEffect(() => {
         fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`).then(async response => {
@@ -26,7 +26,7 @@ export const ProjectListScreen = () => {
                 setList(await response.json())
             }
         })
-    }, [debouncedParam]) 
+    }, [debouncedParam])
 
     useMount(() => {
         fetch(`${apiUrl}/users`).then(async response => {
